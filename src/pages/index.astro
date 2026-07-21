@@ -11,7 +11,7 @@ const asset = (path: string) => `${base}/${path.replace(/^\/+/, '')}`;
 const features = [
   {
     title: 'Live, WYSIWYG markdown',
-    body: 'Milkdown/ProseMirror render your formatting as you type — no split-pane preview, no context switch.',
+    body: 'Milkdown/ProseMirror render your formatting as you type — because the prompt and the spec deserve better than a plain text file.',
   },
   {
     title: 'An agent lives in your editor',
@@ -41,15 +41,15 @@ const features = [
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" href={asset('favicon.svg')} type="image/svg+xml" />
-		<title>TypeMark — the markdown IDE for the agentic era</title>
+		<title>TypeMark — the IDE for the agentic era</title>
 		<meta
 			name="description"
-			content="TypeMark is a fast, native markdown editor for macOS with an integrated terminal, Vim mode, and Git built in — so your writing and your coding agents live in the same window."
+			content="Developers don't write every line anymore — they write the prompts, specs, and skills that steer the agents who do. That's markdown, not code. TypeMark is the editor built for it."
 		/>
-		<meta property="og:title" content="TypeMark — the markdown IDE for the agentic era" />
+		<meta property="og:title" content="TypeMark — the IDE for the agentic era" />
 		<meta
 			property="og:description"
-			content="A fast, native markdown editor with an integrated terminal, Vim mode, and Git built in."
+			content="The markdown editor for developers who write the agents, not the code."
 		/>
 		<meta property="og:type" content="website" />
 		<meta name="generator" content={Astro.generator} />
@@ -69,10 +69,10 @@ const features = [
 		<main>
 			<section class="hero" id="top">
 				<p class="eyebrow">For macOS</p>
-				<h1>The markdown editor built for the <em>agentic era</em>.</h1>
+				<h1>The IDE for the <em>agentic era</em>.</h1>
 				<p class="lede">
-					TypeMark is a fast, native writing surface with a real terminal built in —
-					so your notes and your coding agents share the same window, not two.
+					You don't write every line anymore — you write the agents that do.
+					TypeMark is the editor built for that shift.
 				</p>
 				<div class="cta-row">
 					<a class="button button-primary" href={RELEASES}>Download for Mac</a>
@@ -81,6 +81,28 @@ const features = [
 				<div class="mockup" aria-label="TypeMark demo">
 					<img src={asset('demo.gif')} alt="TypeMark demo" width="960" height="540" />
 				</div>
+			</section>
+
+			<section class="thesis">
+				<h2>Code stopped being the artifact.</h2>
+				<p class="lede">
+					The actual work now is the prompt, the spec, the skill file that tells an
+					agent what to build — and hands it the context to build it right.
+					That's not code. It's markdown.
+				</p>
+				<div class="thesis-flow">
+					<span>You</span>
+					<span class="thesis-arrow">&rarr;</span>
+					<span class="thesis-highlight">Markdown<br /><small>prompts &middot; specs &middot; skills</small></span>
+					<span class="thesis-arrow">&rarr;</span>
+					<span>Agent</span>
+					<span class="thesis-arrow">&rarr;</span>
+					<span>Code</span>
+				</div>
+				<p class="lede">
+					TypeMark treats that markdown like the first-class artifact it's become —
+					live-rendered, Git-tracked, with the agent's own terminal sitting right next to it.
+				</p>
 			</section>
 
 			<section class="features" id="features">
@@ -289,18 +311,70 @@ const features = [
 	}
 
 	.mockup {
-		border-radius: 14px;
-		overflow: hidden;
-		border: 1px solid var(--line);
-		background: var(--bg-raised);
-		box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+		/* The screenshot/recording already has its own window chrome (traffic
+		   lights, rounded corners) — no extra border or frame here, just a
+		   soft shadow for depth, or it reads as a frame around a frame. */
 		line-height: 0;
+		filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.5));
 	}
 
 	.mockup img {
 		display: block;
 		width: 100%;
 		height: auto;
+	}
+
+	.thesis {
+		padding: clamp(48px, 9vw, 80px) 0;
+		border-top: 1px solid var(--line);
+		text-align: center;
+	}
+
+	.thesis h2 {
+		font-family: var(--serif);
+		color: var(--text-strong);
+		font-size: clamp(26px, 4vw, 36px);
+		margin: 0 0 20px;
+	}
+
+	.thesis .lede:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.thesis-flow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 14px;
+		margin: 8px auto 32px;
+		font-size: 15px;
+		color: var(--text-muted);
+	}
+
+	.thesis-arrow {
+		color: var(--text-muted-soft);
+		font-size: 18px;
+	}
+
+	.thesis-highlight {
+		padding: 10px 18px;
+		border-radius: 10px;
+		background: var(--bg-soft);
+		border: 1px solid var(--line);
+		color: var(--accent-strong);
+		font-family: var(--mono);
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 1.5;
+	}
+
+	.thesis-highlight small {
+		display: block;
+		color: var(--text-muted);
+		font-weight: 400;
+		font-size: 11px;
+		letter-spacing: 0.02em;
 	}
 
 	.features {
